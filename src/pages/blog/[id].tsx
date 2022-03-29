@@ -26,7 +26,7 @@ export const getStaticPaths = async () => {
         id: blog.id,
       },
     })),
-    fallback: true,
+    fallback: false,
   };
 };
 
@@ -36,7 +36,6 @@ export const getStaticProps = async ({
   params: { id: string };
 }) => {
   const data = await getBlog(params.id);
-  console.log(data);
 
   return {
     props: {
