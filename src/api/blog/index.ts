@@ -6,9 +6,8 @@ type TagItem = CommonItem & {
 
 export type BlogItem = CommonItem & {
   title: string;
-  description: string;
+  body: string;
   tags: TagItem[];
-  markdown: string;
 };
 
 // APIの型定義

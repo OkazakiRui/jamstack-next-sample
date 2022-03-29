@@ -20,3 +20,7 @@ export const getBlogList = () => {
   // res が CommonList<ArticleItem> 型になっている
   return _fetch.blog.$get({ config });
 };
+
+export const getBlog = (id: string) => {
+  return _fetch.blog._contentId(id).$get({ config });
+};
