@@ -1,5 +1,5 @@
 import { BlogItem } from 'api/blog';
-import { getBlog, getBlogList } from 'libs/client';
+import { getBlogList } from 'libs/client';
 import type { NextPage } from 'next';
 import Link from 'next/link';
 
