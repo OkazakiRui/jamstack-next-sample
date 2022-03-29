@@ -12,8 +12,8 @@ export type BlogItem = CommonItem & {
 };
 
 // APIの型定義
-export interface Methods {
+export type Methods = {
   get: {
     resBody: CommonList<BlogItem>;
   };
-}
+};
