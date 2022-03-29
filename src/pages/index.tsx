@@ -10,12 +10,11 @@ type Props = {
 const Home: NextPage<Props> = ({ blog }) => {
   return (
     <div>
+      <h3>ブログ一覧</h3>
       <ul>
         {blog.map((blog) => (
           <li key={blog.id}>
-            <Link href={`/blog/${blog.id}`}>
-              <a>{blog.title}</a>
-            </Link>
+            <Link href={`/blog/${blog.id}`}>{blog.title}</Link>
           </li>
         ))}
       </ul>

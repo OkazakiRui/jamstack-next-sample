@@ -12,6 +12,7 @@ const Home: NextPage<Props> = ({ blog }) => {
     <div>
       <h3>{blog.title}</h3>
       <div dangerouslySetInnerHTML={{ __html: blog.body }} />
+      <Link href="/">一覧に戻る</Link>
     </div>
   );
 };
