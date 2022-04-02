@@ -21,6 +21,15 @@ export const getBlogList = () => {
   return _fetch.blog.$get({ config });
 };
 
+export const getFilterBlogList = (tagId: string) => {
+  if (!tagId) throw new Error('tagId がありません');
+
+  return _fetch.blog.$get({
+    config,
+    query: { filters: `tag[equals]${tagId}` },
+  });
+};
+
 export const getBlog = (id: string) => {
   return _fetch.blog._contentId(id).$get({ config });
 };
