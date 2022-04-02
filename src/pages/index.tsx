@@ -1,20 +1,32 @@
 import { BlogItem } from 'api/blog';
-import { getBlogList } from 'libs/client';
+import { TagItem } from 'api/tag';
+import { getBlogList, getCategoryList } from 'libs/client';
 import type { NextPage } from 'next';
 import Link from 'next/link';
 
 type Props = {
   blog: BlogItem[];
+  category: TagItem[];
 };
 
-const Home: NextPage<Props> = ({ blog }) => {
+const Home: NextPage<Props> = ({ blog, category }) => {
   return (
     <div>
       <h3>ブログ一覧</h3>
       <ul>
+        {blog.length === 0 && <div>該当するブログがありません</div>}
         {blog.map((blog) => (
           <li key={blog.id}>
             <Link href={`/blog/${blog.id}`}>{blog.title}</Link>
+          </li>
+        ))}
+      </ul>
+      <h4>カテゴリ一覧</h4>
+      <ul>
+        {category.length === 0 && <div>タグが登録されていません</div>}
+        {category.map((tag) => (
+          <li key={tag.id}>
+            <Link href={`/categories/${tag.id}`}>{tag.name}</Link>
           </li>
         ))}
       </ul>
@@ -23,10 +35,13 @@ const Home: NextPage<Props> = ({ blog }) => {
 };
 
 export const getStaticProps = async () => {
-  const data = await getBlogList();
+  const blogData = await getBlogList();
+  const tagData = await getCategoryList();
+
   return {
     props: {
-      blog: data.contents,
+      blog: blogData.contents,
+      category: tagData.contents,
     },
   };
 };
