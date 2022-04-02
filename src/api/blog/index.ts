@@ -5,7 +5,7 @@ import { TagItem } from 'api/tag';
 export type BlogItem = CommonItem & {
   title: string;
   body: string;
-  tags: TagItem[];
+  tag: TagItem;
 };
 
 // APIの型定義
