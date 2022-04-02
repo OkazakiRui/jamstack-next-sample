@@ -1,8 +1,5 @@
 import { CommonItem, CommonList } from 'api/types';
-
-type TagItem = CommonItem & {
-  name: string;
-};
+import { TagItem } from 'api/tag';
 
 export type BlogItem = CommonItem & {
   title: string;

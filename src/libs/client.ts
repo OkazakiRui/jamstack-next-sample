@@ -24,3 +24,7 @@ export const getBlogList = () => {
 export const getBlog = (id: string) => {
   return _fetch.blog._contentId(id).$get({ config });
 };
+
+export const getCategoryList = () => {
+  return _fetch.tag.$get({ config });
+};
