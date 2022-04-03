@@ -8,9 +8,10 @@ import Link from 'next/link';
 type Props = {
   blog: BlogItem[];
   category: TagItem[];
+  totalCount: number;
 };
 
-const Home: NextPage<Props> = ({ blog, category }) => {
+const Home: NextPage<Props> = ({ blog, category, totalCount }) => {
   return (
     <div>
       <h3>ブログ一覧</h3>
@@ -24,7 +25,7 @@ const Home: NextPage<Props> = ({ blog, category }) => {
       </ul>
 
       <h4>ページネーション</h4>
-      <Pagination totalCount={20} />
+      <Pagination totalCount={totalCount} />
 
       <h4>カテゴリ一覧</h4>
       <ul>
@@ -47,6 +48,7 @@ export const getStaticProps = async () => {
     props: {
       blog: blogData.contents,
       category: tagData.contents,
+      totalCount: blogData.totalCount,
     },
   };
 };
