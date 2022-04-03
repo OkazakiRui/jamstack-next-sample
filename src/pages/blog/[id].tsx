@@ -18,7 +18,7 @@ const Home: NextPage<Props> = ({ blog }) => {
 };
 
 export const getStaticPaths = async () => {
-  const data = await getBlogList();
+  const data = await getBlogList(1, 1000);
 
   return {
     paths: data.contents.map((blog) => ({

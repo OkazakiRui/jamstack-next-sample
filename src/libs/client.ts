@@ -16,9 +16,12 @@ const config = {
 
 const _fetch = api(aspida(fetch, { baseURL: url }));
 
-export const getBlogList = () => {
+export const getBlogList = (pageNum: number = 1, limit: number = 5) => {
   // res が CommonList<ArticleItem> 型になっている
-  return _fetch.blog.$get({ config, query: { limit: 5 } });
+  return _fetch.blog.$get({
+    config,
+    query: { limit, offset: (pageNum - 1) * 5 },
+  });
 };
 
 export const getFilterBlogList = (tagId: string) => {
