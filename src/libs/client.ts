@@ -18,7 +18,7 @@ const _fetch = api(aspida(fetch, { baseURL: url }));
 
 export const getBlogList = () => {
   // res が CommonList<ArticleItem> 型になっている
-  return _fetch.blog.$get({ config });
+  return _fetch.blog.$get({ config, query: { limit: 5 } });
 };
 
 export const getFilterBlogList = (tagId: string) => {
@@ -26,7 +26,7 @@ export const getFilterBlogList = (tagId: string) => {
 
   return _fetch.blog.$get({
     config,
-    query: { filters: `tag[equals]${tagId}` },
+    query: { filters: `tag[equals]${tagId}`, limit: 5 },
   });
 };
 
