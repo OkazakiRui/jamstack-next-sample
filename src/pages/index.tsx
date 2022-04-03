@@ -1,5 +1,6 @@
 import { BlogItem } from 'api/blog';
 import { TagItem } from 'api/tag';
+import Pagination from 'components/Pagination';
 import { getBlogList, getCategoryList } from 'libs/client';
 import type { NextPage } from 'next';
 import Link from 'next/link';
@@ -21,6 +22,10 @@ const Home: NextPage<Props> = ({ blog, category }) => {
           </li>
         ))}
       </ul>
+
+      <h4>ページネーション</h4>
+      <Pagination totalCount={20} />
+
       <h4>カテゴリ一覧</h4>
       <ul>
         {category.length === 0 && <div>タグが登録されていません</div>}
